@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from users.models import User
-
+import operator
 # Create your views here.
 
 def match(request):
@@ -8,25 +8,54 @@ def match(request):
         gender=request.POST.get('gender')
         lang=request.POST.get('lang')
         interest=request.POST.get('interest')
-        atmposphere=request.POST.get('atmposphere')
-        match=[]
-        match.insert(0, gender)
-        match.insert(1, lang)
-        match.insert(2, interest)
-        match.insert(3, atmposphere)
+        atmosphere=request.POST.get('atmosphere')
         
-        user=[]
-        user.insert(0, gender)
-        user.insert(1, lang)
-        user.insert(2, interest)
-        user.insert(3, atmposphere)
+        information = User.objects.all()
+        ids = []
+        for item in information:
+            point = 0
+            if gender == item.gender:
+            
+                if lang == item.lang:
+                    if interest == item.interest:
+                        point +=1
+                    if atmosphere == item.atmosphere:
+                        point +=1
+                    if point >= 1:
+                        ids.append(item.id)
         
-
+        if ids == []:
+            return render(request,'fail.html')
+        users = User.objects.filter(id__in=ids)
+        current_user = request.user.id
+        uids = []
+        for i in users:
+            uids.append(i.id)
+        urlss = []
+        for i in uids:
+            if i > current_user:
+                urlss.append(str(current_user)+"_"+str(i))
+            else:
+                urlss.append(str(i)+"_"+str(current_user))
+            
         
-        return redirect('complete')
-    return render(request, 'complete.html')
+        return render(request,'complete.html',{'users':zip(users,urlss)})
+    return render(request, 'match.html')
         
     
 def complete(request):
-    print("s")
+    return render(request, 'complete.html')
     
+
+def fail(request):
+    return render(request, 'fail.html')
+    
+    
+def all_users(request):
+    users = User.objects.all()
+    print(request.user)
+    return render(request, 'all_users.html', {'users': users})
+    
+def send_index(request):
+    users = User.objecs.all()
+    return render(request,'room.html',{'users':users})

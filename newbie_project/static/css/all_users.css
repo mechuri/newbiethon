@@ -1,0 +1,52 @@
+@font-face { font-family: 'YunTaemin'; 
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/YunTaemin.woff') 
+    format('woff'); font-weight: normal; font-style: normal; 
+}
+
+@font-face { font-family: 'BMHANNAPro'; 
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff') 
+    format('woff'); font-weight: normal; font-style: normal; 
+}
+
+img{
+  width : 500px;
+  height : 300px;
+
+}
+.flex-container{
+
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          margin: 10px 50px 0px;
+          justify-content:center;
+          align-items:flex-start;
+          font-family : "BMHANNAPro";
+          
+        }
+        
+        .flex-card{
+          display:flex;
+          flex-direction:column;
+          margin: 30px;
+          width: 300px;
+          height:700px;
+          justify-content:center;
+          background-color:white;
+          font-family : "BMHANNAPro";
+        }
+          
+          .flex-card  .card-title{
+            font-size: 1.5em;
+            padding: 10px;
+            margin-top: 20px;
+            align-self: center;
+            font-family : "BMHANNAPro";
+          
+        }
+            .flex-card .card-text{
+            padding: 0px 10px 10px;
+            align-self: center;
+            font-family : "BMHANNAPro";
+        }
+        

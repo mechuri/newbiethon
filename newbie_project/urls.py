@@ -17,12 +17,19 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 from matching import urls as matching_urls
+from django.conf import settings
+from django.conf.urls.static import static
+from first.chats import urls as chats_urls
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.main,name='main'),
+    path('eng/',views.main_e,name='main-english'),
+    path('ch/',views.main_c,name='main-chinese'),
     path('users/',include('users.urls')),
-    path('matching/', include(matching_urls))
+    path('message/',include('message.urls')),
+    path('matching/', include(matching_urls)),
+    path('chats/',include(chats_urls))
     
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

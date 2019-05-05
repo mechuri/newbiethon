@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/fail.css'%}" >
+</head>
+
+<body>
+    <image style="opacity:0.6" src="{% static 'image/nofriend.jpg' %}">
+    <p>친구를 찾지 못했어요ㅠㅠ<br>조건을 바꿔서 다시 검색해주세요.</p>
+    <div class="warning-wrapper">
+            <div class="warning1">
+                    <a href="{% url 'match' %}">검색조건바꾸기</a>
+                </div>
+                <div class="warning2">
+                    <a href="{% url 'all_users' %}">수동으로찾아보기</a>
+                </div>
+    </div>
+</body>
+
+</html>

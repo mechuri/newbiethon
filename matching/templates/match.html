@@ -1,31 +1,49 @@
-<p>매칭</p>
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
 
-<form action="{% url 'result3' %}" method="POST">
-    {% csrf_token %}
-    
-    성별<br>
-    <input type="radio" name="gender" value="male">남자
-    <input type="radio" name="gender" value="female">여자
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/match.css'%}" >
+</head>
 
-    언어<br>
-    <input type="radio" name="lang" value="korean">한국어
-    <input type="radio" name="lang" value="english">영어
-    <input type="radio" name="lang" value="spanish">스페인어
-    <input type="radio" name="lang" value="chinese">중국어
-    <input type="radio" name="lang" value="japanese">일본어
-    <br>
-    
-    관심사<br>
-    <input type="radio" name="interest" value="travel">여행
-    <input type="radio" name="interest" value="study">공부
-    <input type="radio" name="interest" value="sport">운동
-    <input type="radio" name="interest" value="culture">문화/예술
-    <br>
-    
-    분위기<br>
-    <input type="radio" name="atmposphere" value="loud">시끌시끌
-    <input type="radio" name="atmposphere" value="quiet">조용하게
-    <br>
-    
-    <input type='submit' class="btn btn-warning" value="친구찾기">
-</form>
+<body>
+    <div class="box">
+    <p>원활한 매칭을 위해 정보를 기입해주세요 !!</p>
+    <form action="{% url 'match' %}" method="POST"> 
+         {% csrf_token %} 
+        상대방의 성별을 선택해주세요.
+        <br><br>
+        <input type="radio" name="gender" value="male">남자
+        <input type="radio" name="gender" value="female">여자<br><br>
+
+        상대방의 언어를 선택해주세요.<br><br>
+        <input type="radio" name="lang" value="korean">한국어
+        <input type="radio" name="lang" value="english">영어
+        <input type="radio" name="lang" value="spanish">스페인어
+        <input type="radio" name="lang" value="chinese">중국어
+        <input type="radio" name="lang" value="japanese">일본어
+        <br><br>
+
+        상대방의 관심사를 골라주세요.<br><br>
+        <input type="radio" name="interest" value="travel">여행
+        <input type="radio" name="interest" value="study">공부
+        <input type="radio" name="interest" value="sport">운동
+        <input type="radio" name="interest" value="culture">문화/예술
+        <br><br>
+
+        상대방의 성격을 골라주세요.<br><br>
+        <input type="radio" name="atmosphere" value="loud">친화적인 성격
+        <input type="radio" name="atmosphere" value="loud2">외향적인 성격
+        <input type="radio" name="atmosphere" value="quiet">내향적인 성격
+        <br>
+
+        <input class="finding" type='submit' lass="btn btn-warning" value="친구찾기">
+    </div>
+    </form>
+</body>
+
+</html>

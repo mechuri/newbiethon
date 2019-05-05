@@ -1,17 +1,33 @@
-{% extends 'base.html' %}
-{% load staticfiles %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
 
-{% block contents %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/sign_in_fail.css'%}" >
+    
+</head>
 
-<div class="wrapper">
-    <div class="container text-center">
-        <div class="center">
-            <img style="width:500px" src = "{% static 'image/logo.png'  %}">
-            <h3>사용자이름이 중복입니다. 다른이름으로 적어주세요!</h3>
-            <button onclick = "history.go(-1)">뒤로가기</button>
-        </div>
+<body>
+
+
+    <img style="width:500px" src="{% static 'image/logo.png'  %}">
+    <div class="Warning">
+        <p>Warning</p><br>
     </div>
-</div>
+    <div class="Warning-message">
+        <p>사용자 이름이 중복입니다!<br><br>
+            <div class="Warning-message2">
+                <p>다른 이름으로 적어주세요!</p>
+            </div>
+        </p><br>
+    </div><button onclick="history.go(-1)">
+        <p>뒤로가기</p>
+    </button>
 
+</body>
 
-{% endblock %}
+</html>

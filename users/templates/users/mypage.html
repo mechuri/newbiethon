@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="{% static 'css/mypage.css' %}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="box">
+        <div class="font">
+            <form action="{% url 'update' user.pk %}" method="POST" enctype="multipart/form-data">
+            <h3>회원정보</h3>
+            </h3>
+            {% csrf_token %}
+            <div class='user-info'>
+                <label>사용자 이름 :</label>
+                <input type="text" name="name" value="{{ user.name }}" required />
+            </div>
+
+            <label>사용자 성별 :</label>
+            <input type="radio" name="gender" value="male">남자
+            <input type="radio" name="gender" value="female">여자<br><br>
+
+            <label>사용자 언어 :</label>
+            <input type="radio" name="lang" value="korean">한국어
+            <input type="radio" name="lang" value="english">영어
+            <input type="radio" name="lang" value="spanish">스페인어
+            <input type="radio" name="lang" value="chinese">중국어
+            <input type="radio" name="lang" value="japanese">일본어<br><br>
+
+            <label>사용자 관심사 :</label>
+            <input type="radio" name="interest" value="travel">여행
+            <input type="radio" name="interest" value="study">공부
+            <input type="radio" name="interest" value="sport">운동
+            <input type="radio" name="interest" value="culture">문화/예술<br><br>
+
+            <label>사용자 분위기: </label>
+            <input type="radio" name="atmosphere" value="loud">친화적인 성격
+            <input type="radio" name="atmosphere" value="loud2">외향적인 성격
+            <input type="radio" name="atmosphere" value="quiet">내향적인 성격<br><br>
+            <div class='user-info'>
+                <label>사용자 이메일 :</label>
+                <input type="text" name="email" value="{{ user.email }}" required /> <br><br>
+            </div>
+            <label>사용자 프로필 :</label>
+            <input type="file" name="main_image" value="{{ user.main_image }}" /> <br><br>
+            <div class='user-info'>
+                <label>사용자 소개 :</label>
+                <textarea name="introduce">{{ user.introduce }}</textarea><br><br>
+            </div>
+            <input class="sign" type="submit" value="수정하기" />
+            </form>
+            <form action="{% url 'bye' user.pk %}" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="탈퇴하기" class="btn btn-primary">
+            </form>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

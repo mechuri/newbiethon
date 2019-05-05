@@ -1,0 +1,42 @@
+@font-face {
+    font-family: 'BMHANNAPro';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: #F5F6F7;
+}
+
+.box {
+    font-family: 'BMHANNAPro';
+    width: 50%;
+    font-size: 27px;
+    border: 5px solid black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 5%;
+    background-color: white !important;
+}
+
+p {
+    padding-top: 0em;
+    font-size: 35px;
+}
+
+.sign{
+    font-family : 'BMHANNAPro';
+    padding : 10px;
+    position : absolute;
+    right : 40px;
+    bottom : 20px;
+}
+.user-info{ 
+    margin-bottom : 10px;
+}
+.user-info input{ 
+    padding : 0; border : 1px solid #757575; border-radius: 3px; 
+}
