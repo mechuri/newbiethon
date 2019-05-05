@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block contents %}
+
+<div class="wrapper">
+    <div class="container text-center">
+        <div class="center">
+            <img style="width:500px" src = "{% static 'image/logo.png'  %}">
+            <h3>사용자이름이 중복입니다. 다른이름으로 적어주세요!</h3>
+            <button onclick = "history.go(-1)">뒤로가기</button>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

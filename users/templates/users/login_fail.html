@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block contents %}
+
+<div class="wrapper">
+    <div class="container text-center">
+        <div class="center">
+            <img style="width:500px" src = "#"><br>
+            <h3>사용자 이름이나 비밀번호에 오류가 있습니다! <br>다시확인해주세요</h3>
+            <button onclick = "history.go(-1)">뒤로가기</button><br>
+            <h2>혹시 가입을 안하셨다면 <a class="underlineHover" href="{% url 'sign_in' %}">회원가입</a> </h2>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

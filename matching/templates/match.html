@@ -1,0 +1,31 @@
+<p>매칭</p>
+
+<form action="{% url 'result3' %}" method="POST">
+    {% csrf_token %}
+    
+    성별<br>
+    <input type="radio" name="gender" value="male">남자
+    <input type="radio" name="gender" value="female">여자
+
+    언어<br>
+    <input type="radio" name="lang" value="korean">한국어
+    <input type="radio" name="lang" value="english">영어
+    <input type="radio" name="lang" value="spanish">스페인어
+    <input type="radio" name="lang" value="chinese">중국어
+    <input type="radio" name="lang" value="japanese">일본어
+    <br>
+    
+    관심사<br>
+    <input type="radio" name="interest" value="travel">여행
+    <input type="radio" name="interest" value="study">공부
+    <input type="radio" name="interest" value="sport">운동
+    <input type="radio" name="interest" value="culture">문화/예술
+    <br>
+    
+    분위기<br>
+    <input type="radio" name="atmposphere" value="loud">시끌시끌
+    <input type="radio" name="atmposphere" value="quiet">조용하게
+    <br>
+    
+    <input type='submit' class="btn btn-warning" value="친구찾기">
+</form>

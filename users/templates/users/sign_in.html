@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block contents %}
+
+<div class="wrapper">
+    <div class="container text-center">
+        <div class="center">
+            <form action="{% url 'sign_in' %}" method="POST">
+                <h3>회원가입</h3>
+                {% csrf_token %}
+                <label>사용자 이름 :</label>
+                <input type="text" name="name" required/> <br><br>
+                
+                <label>사용자 비밀번호 :</label>
+                <input type="password" name="password" required/><br><br>
+                <input type="submit" value="Sign In"/>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
