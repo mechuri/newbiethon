@@ -27,7 +27,9 @@ def match(request):
         if ids == []:
             return render(request,'fail.html')
         users = User.objects.filter(id__in=ids)
-        current_user = request.user.id
+
+        current_user = 1 #for temporary setting
+
         uids = []
         for i in users:
             uids.append(i.id)

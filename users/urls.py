@@ -14,4 +14,4 @@ urlpatterns = [
     path('update/<int:id>', views.update, name="update"),
     
 
-]
+]  

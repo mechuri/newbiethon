@@ -57,12 +57,11 @@ def check(request):
     if request.method == "POST":
         password = request.POST.get('password')
         check_password = request.POST.get('check_password')
-        check_pk = request.POST.get('check_pk')
-        user = User.objects.get(pk=int(check_pk))
-        # pdb.set_trace()
+        check_pk = int(request.POST.get('check_pk'))
+        user = get_object_or_404(User, pk=check_pk)
         if password == check_password:
             return render(request,'users/mypage.html',{'user':user})
-    return render(request, 'users/password.html')
+    return redirect('password', id=check_pk)
     
 
 
